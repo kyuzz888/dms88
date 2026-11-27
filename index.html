@@ -14,6 +14,8 @@
     <a class="brand" href="#beranda">Kyuzz<span>Shop</span></a>
     <nav id="menu" class="menu" aria-label="Navigasi utama">
       <a href="#beranda">Beranda</a>
+      <a href="#game">Game</a>
+      <a href="#promo">Promo</a>
       <a href="#tentang">Tentang Kami</a>
       <a href="#katalog">Katalog</a>
     </nav>
@@ -26,14 +28,62 @@
 
 <main>
   <section id="beranda" class="hero">
-    <div class="wrap">
-      <p class="pill">⚡ Proses otomatis 1–5 menit</p>
-      <h1>Top Up Game <em>Instan</em>,<br>Harga Gamers Banget.</h1>
-      <p class="lead">Diamond, UC, Genesis Crystal, dan voucher favoritmu tersedia di satu tempat. Pilih paket, checkout lewat WhatsApp, selesai.</p>
-      <div class="cta">
-        <a class="btn primary" href="#katalog">Mulai Top Up</a>
-        <a class="btn ghost" href="#tentang">Kenapa KyuzzShop?</a>
+    <div class="wrap hero-grid">
+      <div>
+        <p class="pill">⚡ Proses otomatis 1–5 menit</p>
+        <h1>Top Up Game <em>Instan</em>,<br>Harga Gamers Banget.</h1>
+        <p class="lead">Diamond, UC, Genesis Crystal, dan voucher favoritmu tersedia di satu tempat. Pilih paket, checkout lewat WhatsApp, selesai.</p>
+        <div class="cta">
+          <a class="btn primary" href="#katalog">Mulai Top Up</a>
+          <a class="btn ghost" href="#promo">Lihat Promo</a>
+        </div>
       </div>
+      <svg class="mascot" viewBox="0 0 320 260" role="img" aria-label="Maskot KyuzzShop berbentuk controller game">
+        <circle class="s1" cx="160" cy="130" r="120"/>
+        <rect class="s3" x="40" y="90" width="240" height="120" rx="60"/>
+        <rect class="s2" x="48" y="80" width="224" height="120" rx="60"/>
+        <circle class="eye" cx="125" cy="125" r="20"/><circle class="eye" cx="195" cy="125" r="20"/>
+        <circle class="pup" cx="130" cy="127" r="9"/><circle class="pup" cx="200" cy="127" r="9"/>
+        <path class="smile" d="M135 160 Q160 182 185 160"/>
+        <polygon class="spark" points="40,50 46,66 62,72 46,78 40,94 34,78 18,72 34,66"/>
+        <polygon class="spark" points="280,30 285,43 298,48 285,53 280,66 275,53 262,48 275,43"/>
+        <polygon class="spark" points="270,205 274,215 284,219 274,223 270,233 266,223 256,219 266,215"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="wrap stats" aria-label="Keunggulan">
+    <div class="stat"><b>⚡ 1–5 mnt</b><span class="muted">Proses top up</span></div>
+    <div class="stat"><b>🕒 24/7</b><span class="muted">Pesan kapan saja</span></div>
+    <div class="stat"><b>🔒 Aman</b><span class="muted">Tanpa password akun</span></div>
+    <div class="stat"><b>💬 WhatsApp</b><span class="muted">Admin siap bantu</span></div>
+  </section>
+
+  <section id="game" class="wrap sec">
+    <h2>Pilih Game</h2>
+    <p class="muted">Pilih game favoritmu untuk langsung melihat paket top-up-nya.</p>
+    <div id="games" class="games"></div>
+  </section>
+
+  <section id="promo" class="wrap sec">
+    <h2>Promo &amp; Diskon</h2>
+    <div class="promo-grid">
+      <article id="deal" class="card deal"></article>
+      <article class="card special">
+        <span class="pill">🎁 Promo Spesial</span>
+        <h3>Diskon 10% semua top up</h3>
+        <p class="muted">Gunakan kode <b>KYUZZ10</b> di keranjang. Bisa dipakai bersama Diskon Harian.</p>
+        <div class="row l"><button id="copyKode" class="btn ghost" type="button">Salin Kode</button><button id="useKode" class="btn primary" type="button">Pakai Sekarang</button></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="cara" class="wrap sec">
+    <h2>Cara Order</h2>
+    <div class="grid3">
+      <article class="card"><span class="step">1</span><h3>Pilih Paket</h3><p class="muted">Pilih game dan nominal top up, lalu tambahkan ke keranjang.</p></article>
+      <article class="card"><span class="step">2</span><h3>Isi ID Game</h3><p class="muted">Masukkan nama dan ID Game, kode promo bila ada.</p></article>
+      <article class="card"><span class="step">3</span><h3>Bayar via WhatsApp</h3><p class="muted">Kirim pesanan ke admin dan item masuk ke akunmu.</p></article>
     </div>
   </section>
 
@@ -50,10 +100,21 @@
   <section id="katalog" class="wrap sec">
     <h2>Katalog Produk</h2>
     <label class="sr" for="search">Cari produk</label>
-    <input id="search" class="input" type="search" placeholder="Cari game atau paket…" maxlength="40" autocomplete="off">
+    <div class="tools">
+      <input id="search" class="input" type="search" placeholder="Cari game atau paket…" maxlength="40" autocomplete="off">
+      <label class="sr" for="sort">Urutkan</label>
+      <select id="sort" class="input"><option value="def">Urutkan: Default</option><option value="asc">Harga terendah</option><option value="desc">Harga tertinggi</option></select>
+    </div>
     <div id="chips" class="chips" role="group" aria-label="Filter kategori"></div>
     <div id="grid" class="grid"></div>
     <p id="empty" class="muted center" hidden>Produk tidak ditemukan.</p>
+  </section>
+<section id="faq" class="wrap sec">
+    <h2>Pertanyaan Umum</h2>
+    <details class="card"><summary>Apakah perlu memberikan password akun?</summary><p class="muted">Tidak. Kami hanya membutuhkan ID Game (dan server bila ada). Jangan pernah membagikan password.</p></details>
+    <details class="card"><summary>Berapa lama proses top up?</summary><p class="muted">Umumnya 1–5 menit setelah pembayaran dikonfirmasi admin.</p></details>
+    <details class="card"><summary>Bagaimana jika salah memasukkan ID?</summary><p class="muted">Hubungi admin lewat tombol WhatsApp secepatnya sebelum pesanan diproses.</p></details>
+    <details class="card"><summary>Bagaimana cara memakai kode promo?</summary><p class="muted">Masukkan kode di keranjang, lalu tekan Pakai. Diskon langsung terhitung di total.</p></details>
   </section>
 </main>
 
@@ -67,6 +128,8 @@
   <div id="items" class="items"></div>
   <p id="cartEmpty" class="muted center">Keranjang masih kosong.</p>
   <div class="dfoot">
+    <div class="kode"><label class="sr" for="kode">Kode promo</label><input id="kode" class="input" type="text" placeholder="Kode promo (KYUZZ10)" maxlength="20" autocomplete="off"><button id="applyKode" class="btn ghost" type="button">Pakai</button></div>
+    <div class="total"><span>Diskon</span><strong id="disc">-Rp0</strong></div>
     <div class="total"><span>Total</span><strong id="total">Rp0</strong></div>
     <label class="sr" for="nama">Nama</label>
     <input id="nama" class="input" type="text" placeholder="Nama kamu" maxlength="40" autocomplete="name">
@@ -85,6 +148,7 @@
     <div class="row"><button id="mNo" class="btn ghost" type="button">Batal</button><button id="mYes" class="btn primary" type="button">Ya, kosongkan</button></div>
   </div>
 </div>
+<a id="waFab" class="fab" href="#katalog" target="_blank" rel="noopener noreferrer" aria-label="Chat admin via WhatsApp">💬</a>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <script src="app.js"></script>
 </body>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="description" content="KyuzzShop: top-up game online cepat, aman, dan murah untuk para gamers.">
+<title>KyuzzShop — Top Up Game Cepat &amp; Aman</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#beranda">Kyuzz<span>Shop</span></a>
+    <nav id="menu" class="menu" aria-label="Navigasi utama">
+      <a href="#beranda">Beranda</a>
+      <a href="#tentang">Tentang Kami</a>
+      <a href="#katalog">Katalog</a>
+    </nav>
+    <div class="actions">
+      <button id="cartBtn" class="btn ghost" type="button" aria-label="Buka keranjang">🛒 <span id="badge" class="badge">0</span></button>
+      <button id="burger" class="btn ghost burger" type="button" aria-label="Buka menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="beranda" class="hero">
+    <div class="wrap">
+      <p class="pill">⚡ Proses otomatis 1–5 menit</p>
+      <h1>Top Up Game <em>Instan</em>,<br>Harga Gamers Banget.</h1>
+      <p class="lead">Diamond, UC, Genesis Crystal, dan voucher favoritmu tersedia di satu tempat. Pilih paket, checkout lewat WhatsApp, selesai.</p>
+      <div class="cta">
+        <a class="btn primary" href="#katalog">Mulai Top Up</a>
+        <a class="btn ghost" href="#tentang">Kenapa KyuzzShop?</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="tentang" class="wrap sec">
+    <h2>Tentang Kami</h2>
+    <p class="muted">KyuzzShop adalah toko top-up game yang dibuat oleh gamers, untuk gamers. Kami mengutamakan kecepatan, harga transparan, dan layanan ramah lewat WhatsApp.</p>
+    <div class="grid3">
+      <article class="card"><h3>⚡ Cepat</h3><p class="muted">Pesanan diproses dalam hitungan menit.</p></article>
+      <article class="card"><h3>🔒 Aman</h3><p class="muted">Kami tidak pernah meminta password akunmu.</p></article>
+      <article class="card"><h3>💬 Support</h3><p class="muted">Admin siap membantu lewat WhatsApp.</p></article>
+    </div>
+  </section>
+
+  <section id="katalog" class="wrap sec">
+    <h2>Katalog Produk</h2>
+    <label class="sr" for="search">Cari produk</label>
+    <input id="search" class="input" type="search" placeholder="Cari game atau paket…" maxlength="40" autocomplete="off">
+    <div id="chips" class="chips" role="group" aria-label="Filter kategori"></div>
+    <div id="grid" class="grid"></div>
+    <p id="empty" class="muted center" hidden>Produk tidak ditemukan.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">© 2026 KyuzzShop. Semua merek dagang adalah milik pemiliknya masing-masing.</div>
+</footer>
+
+<div id="scrim" class="scrim" hidden></div>
+<aside id="drawer" class="drawer" aria-label="Keranjang belanja" aria-hidden="true">
+  <div class="dhead"><h2>Keranjang</h2><button id="closeCart" class="btn ghost" type="button" aria-label="Tutup keranjang">✕</button></div>
+  <div id="items" class="items"></div>
+  <p id="cartEmpty" class="muted center">Keranjang masih kosong.</p>
+  <div class="dfoot">
+    <div class="total"><span>Total</span><strong id="total">Rp0</strong></div>
+    <label class="sr" for="nama">Nama</label>
+    <input id="nama" class="input" type="text" placeholder="Nama kamu" maxlength="40" autocomplete="name">
+    <label class="sr" for="gid">ID Game</label>
+    <input id="gid" class="input" type="text" placeholder="ID Game / User ID (+ Server)" maxlength="40" autocomplete="off">
+    <p id="err" class="err" role="alert"></p>
+    <button id="checkout" class="btn primary block" type="button">Checkout via WhatsApp</button>
+    <button id="clearBtn" class="btn ghost block" type="button">Kosongkan Keranjang</button>
+  </div>
+</aside>
+
+<div id="modal" class="modal" hidden>
+  <div class="box" role="dialog" aria-modal="true" aria-labelledby="mt">
+    <h3 id="mt">Kosongkan keranjang?</h3>
+    <p class="muted">Semua item akan dihapus dari keranjang.</p>
+    <div class="row"><button id="mNo" class="btn ghost" type="button">Batal</button><button id="mYes" class="btn primary" type="button">Ya, kosongkan</button></div>
+  </div>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>
